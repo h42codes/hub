@@ -13,6 +13,7 @@
   padding: 16px;
   background-color: #f2f2f2;
   /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); */
+  margin-bottom: 32px;
 }
 
 .header .logo img {
@@ -41,4 +42,44 @@
 
 .header button:hover {
   background-color: #f2f2f2;
+}
+
+/* Feed */
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feed {
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Posts */
+.post {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.post-title:hover {
+  color: #7b2a2a;
+  text-decoration: underline;
+}
+
+.post-content {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.post-upvotes {
+  font-size: 14px;
+  color: #888;
 }

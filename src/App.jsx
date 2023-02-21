@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Header from "./components/Header";
+import Feed from "./components/Feed";
 import "./App.css";
 
-const dummyData = [
+const dummyPosts = [
   {
     id: 1,
     created_at: "2023-02-21T12:34:56.000Z",
@@ -76,6 +77,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <Feed posts={dummyPosts} />
     </div>
   );
 }
