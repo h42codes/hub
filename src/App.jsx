@@ -1,8 +1,7 @@
-import { useState } from "react";
-import Header from "./components/Header";
-import Feed from "./components/Feed";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Detail from "./pages/Detail";
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
 
 const dummyPosts = [
   {
@@ -76,12 +75,12 @@ const dummyPosts = [
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <Feed posts={dummyPosts} />
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home posts={dummyPosts} />} />
+        <Route path="/post/:id" element={<Detail />} />
+      </Routes>
+    </div>
   );
 }
 
