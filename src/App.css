@@ -69,17 +69,18 @@
   margin-bottom: 8px;
 }
 
-.post-title:hover {
-  color: #7b2a2a;
-  text-decoration: underline;
-}
-
 .post-content {
   font-size: 18px;
   margin-bottom: 16px;
 }
 
+.post-comments,
 .post-upvotes {
   font-size: 14px;
   color: #888;
+}
+
+.post div:hover {
+  color: #7b2a2a;
+  text-decoration: underline;
 }

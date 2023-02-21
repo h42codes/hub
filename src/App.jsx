@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Feed from "./components/Feed";
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
 
 const dummyPosts = [
   {
@@ -75,10 +76,12 @@ const dummyPosts = [
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Feed posts={dummyPosts} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+        <Feed posts={dummyPosts} />
+      </div>
+    </BrowserRouter>
   );
 }
 
