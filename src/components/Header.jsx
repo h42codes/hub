@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <div className="header">
-      <div className="logo">
+      <div className="logo" onClick={() => navigate("/")}>
         <img src="/src/assets/desert.png" alt="logo" />
         {/* <div className="title">Hub</div> */}
       </div>
@@ -13,7 +16,7 @@ const Header = () => {
       </div>
       <div className="buttons">
         {/* <button>Home</button> */}
-        <button>Create New Post</button>
+        <button onClick={() => navigate("/new")}>Create New Post</button>
       </div>
     </div>
   );
