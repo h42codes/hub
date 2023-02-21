@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { createContext, useContext } from "react";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Edit from "./pages/Edit";
@@ -73,18 +74,89 @@ const dummyPosts = [
       },
     ],
   },
+  {
+    id: 5,
+    created_at: "2023-02-17T15:30:00.000Z",
+    title: "Lorem ipsum dolor sit amet",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique, ipsum vel sollicitudin rutrum, elit elit malesuada elit, et dapibus urna magna vel nunc.",
+    image_url: null,
+    upvotes: 5,
+    comments: [
+      {
+        id: 5,
+        created_at: "2023-02-18T10:00:00.000Z",
+        content: "Great post! I really enjoyed reading it.",
+      },
+      {
+        id: 6,
+        created_at: "2023-02-19T14:30:00.000Z",
+        content: "I totally agree with your points. Keep up the good work!",
+      },
+    ],
+  },
+  {
+    id: 6,
+    created_at: "2023-02-16T11:45:00.000Z",
+    title: "Pellentesque habitant morbi tristique senectus",
+    content:
+      "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed euismod ac metus quis rutrum. Ut vel tellus vel nulla hendrerit tristique ac vel turpis.",
+    image_url:
+      "https://via.placeholder.com/640x480.png/0088cc?text=Placeholder+Image",
+    upvotes: 10,
+    comments: [
+      {
+        id: 7,
+        created_at: "2023-02-17T09:00:00.000Z",
+        content: "I learned a lot from this post. Thanks for sharing!",
+      },
+      {
+        id: 8,
+        created_at: "2023-02-18T17:30:00.000Z",
+        content: "This is a really well-written article. Keep it up!",
+      },
+    ],
+  },
+  {
+    id: 7,
+    created_at: "2023-02-15T14:20:00.000Z",
+    title:
+      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae",
+    content:
+      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut convallis elit ut odio semper vestibulum. Sed ut justo et odio convallis fermentum at at purus.",
+    image_url: null,
+    upvotes: 7,
+    comments: [
+      {
+        id: 9,
+        created_at: "2023-02-16T12:30:00.000Z",
+        content:
+          "This is an interesting topic. Thanks for sharing your thoughts.",
+      },
+      {
+        id: 10,
+        created_at: "2023-02-17T11:00:00.000Z",
+        content:
+          "I never thought about this issue before. You've given me a lot to think about.",
+      },
+    ],
+  },
 ];
+
+export const PostContext = createContext();
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home posts={dummyPosts} />} />
-        <Route path="/post/:id" element={<Detail />} />
-        <Route path="/edit/:id" element={<Edit />} />
-        <Route path="/new" element={<New />} />
-      </Routes>
-    </div>
+    <PostContext.Provider value={dummyPosts}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home posts={dummyPosts} />} />
+          <Route path="/post/:id" element={<Detail />} />
+          <Route path="/edit/:id" element={<Edit />} />
+          <Route path="/new" element={<New />} />
+        </Routes>
+      </div>
+    </PostContext.Provider>
   );
 }
 
